@@ -18,7 +18,7 @@ eks.Cluster(scope: constructs.Construct, id: builtins.str, **kwargs)
 
 ---
 
-##### ~~version~~ (depecrated - use x)
+##### `version`
 
 The Kubernetes version to run in the cluster
 
@@ -26,7 +26,7 @@ The Kubernetes version to run in the cluster
 
 ---
 
-##### default_capacity 
+##### `default_capacity`
 
 - *Type: jsii.Number* | ***Optional*** | *Default: 2*
 
@@ -37,7 +37,7 @@ Number of instances to allocate as an initial capacity for this cluster.
 
 ----
 
-##### default_capacity_instance 
+##### `default_capacity_instance`
 
 - *Type: [aws_cdk.aws_ec2.InstanceType](link)* | ***Optional*** | *Default: m5.large*
 
@@ -47,7 +47,7 @@ The instance type to use for the default capacity.
 
 ----
 
-##### default_capacity_type 
+##### `default_capacity_type`
 
 - *Type: [DefaultCapacityType](link)* | ***Optional*** | *Default: NODEGROUP*
 
@@ -55,7 +55,7 @@ The default capacity type for the cluster.
 
 ---
 
-##### secrets_encryption_key 
+##### `secrets_encryption_key`
 
 - *Type: [aws_cdk.aws_kms.IKey](link)* | ***Optional*** | *Default: - By default, Kubernetes stores all secret object data within etcd and all etcd volumes used by Amazon EKS are encrypted at the disk-level using AWS-Managed encryption keys.*
 
@@ -63,7 +63,7 @@ KMS secret for envelope encryption for Kubernetes secrets.
 
 ---
 
-##### cluster_handler_environment 
+##### `cluster_handler_environment`
 
 - *Type: typing.Mapping[builtins.str, builtins.str]* | ***Optional*** | *Default: - No environment variables.*
 
@@ -71,7 +71,7 @@ Custom environment variables when interacting with the EKS endpoint to manage th
 
 ---
 
-##### core_dns_compute_type 
+##### `core_dns_compute_type`
 
 *Type: [CoreDnsComputeType](link)* | ***Optional*** | *Default: CoreDnsComputeType.EC2 (for `FargateCluster` the default is FARGATE)*
 
@@ -79,7 +79,7 @@ Controls the "eks.amazonaws.com/compute-type" annotation in the CoreDNS configur
 
 ---
 
-##### endpoint_access 
+##### ~~`endpoint_access`~~
 
 *Type: [EndpointAccess](link)* | ***Optional*** | *Default: EndpointAccess.PUBLIC_AND_PRIVATE*
 
