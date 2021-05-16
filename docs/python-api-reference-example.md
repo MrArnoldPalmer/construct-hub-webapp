@@ -282,7 +282,7 @@ Lazily creates the AwsAuth resource, which manages AWS authentication mapping.
 
 ##### `kubectl_security_group`
 
-- *Type: [aws_cdk.aws_ec2.ISecurityGroup](link)* | ***Nullable**
+- *Type: [aws_cdk.aws_ec2.ISecurityGroup](link)* | ***Nullable***
  
 A security group to use for ``kubectl`` execution.
 
