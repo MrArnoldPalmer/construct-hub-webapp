@@ -16,11 +16,11 @@ eks.Cluster(scope, id, **kwargs)
 
 #### Keyword Arguments
 
-##### default_capacity <sup>required</sup>
+##### default_capacity <sup>[jsii.Number](adsa)</sup>
 
 Number of instances to allocate as an initial capacity for this cluster.
 
-> Optional <> jsii.Number <> 2
+> Optional. Default: 
 
 > Instance type can be configured through `defaultCapacityInstanceType`, which defaults to `m5.large`.
 > Use `cluster.addAutoScalingGroupCapacity` to add additional customized capacity. Set this to `0` is you wish to avoid the initial capacity allocation.
