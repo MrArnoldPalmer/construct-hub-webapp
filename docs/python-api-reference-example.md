@@ -200,23 +200,47 @@ cluster.connect_auto_scaling_group_capacity(auto_scaling_group: aws_cdk.aws_auto
 
 ---
 
-###### bootstrap_enabled
+###### `bootstrap_enabled`
+
+- *Type: builtins.bool* | ***Optional*** | Default: true
+
+Configures the EC2 user-data script for instances in this autoscaling group to bootstrap the node (invoke `/etc/eks/bootstrap.sh`) and associate it with the EKS cluster.
+
+> If you wish to provide a custom user data script, set this to `false` and manually invoke `autoscalingGroup.addUserData()`.
 
 ---
 
-###### bootstrap_options
+###### `bootstrap_options`
+
+- *Type: [BootstrapOptions](link)* | ***Optional*** | Default: - default options
+
+Allows options for node bootstrapping through EC2 user data.
 
 ---
 
-###### machine_image_type
+###### `machine_image_type`
+
+- *Type: [MachineImageType](link)* | ***Optional*** | Default: MachineImageType.AMAZON_LINUX_2
+
+Allow options to specify different machine image type
 
 ---
 
-###### map_role
+###### `map_role`
+
+- *Type: builtins.bool* | ***Optional*** | Default: - true if the cluster has kubectl enabled (which is the default).
+
+Will automatically update the aws-auth ConfigMap to map the IAM instance role to RBAC.
+
+> This cannot be explicitly set to `true` if the cluster has kubectl disabled.
 
 ---
 
-###### spot_interrupt_handler
+###### `spot_interrupt_handler`
+
+- *Type: builtins.bool* | ***Optional*** | Default: true
+
+Installs the AWS spot instance interrupt handler on the cluster if it's not already added. Only relevant if `spotPrice` is configured on the auto-scaling group.
 
 #### Attributes
 
