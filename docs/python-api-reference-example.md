@@ -242,7 +242,53 @@ Will automatically update the aws-auth ConfigMap to map the IAM instance role to
 
 Installs the AWS spot instance interrupt handler on the cluster if it's not already added. Only relevant if `spotPrice` is configured on the auto-scaling group.
 
+---
+
 #### Attributes
+
+---
+
+##### `connections`
+
+- *Type: [aws_cdk.aws_ec2.Connections](link)*
+
+Manages connection rules (Security Group Rules) for the cluster
+
+---
+
+##### `cluster_security_group`
+
+- *Type: [aws_cdk.aws_ec2.ISecurityGroup](link)*
+
+The cluster security group that was created by Amazon EKS for the cluster.
+
+---
+
+##### `default_capacity`
+
+- *Type: [aws_cdk.aws_autoscaling.AutoScalingGroup](link)* | ***Nullable***
+
+The auto scaling group that hosts the default capacity for this cluster.
+
+> This will be `undefined` if the `defaultCapacityType` is not `EC2` or `defaultCapacityType` is `EC2` but default capacity is set to 0.
+
+---
+
+##### `aws_auth`
+
+- *Type: [AwsAuth](link)*
+
+Lazily creates the AwsAuth resource, which manages AWS authentication mapping.
+
+---
+
+##### `kubectl_security_group`
+
+- *Type: [aws_cdk.aws_ec2.ISecurityGroup](link)* | ***Nullable**
+ 
+A security group to use for ``kubectl`` execution.
+
+> If not specified, the k8s endpoint is expected to be accessible publicly.
 
 #### Static Functions
 
