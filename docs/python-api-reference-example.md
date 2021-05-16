@@ -4,6 +4,27 @@ This document shows how we'd like to present package API reference in python.
 
 # API Reference
 
+* [Constructs](link)
+  * [Cluster](link)
+    * [Properties](link)
+    * [Methods](link)
+      * [`add_manifest`](link)
+      * [`add_auto_scaling_group_capacity`](link)
+      * [`connect_auto_scaling_group_capacity`](link)
+    * [Attributes](link)
+      * [`connections`](link)
+      * [`cluster_security_group`](link)
+      * [`default_capacity`](link)
+      * [`aws_auth`](link)
+      * [`kubectl_security_group`](link)
+    * [Static Functions](link)
+      * [`from_cluster_attributes`](link)
+  * [AwsAuth](link)
+    * [Properties](link)
+    * [Methods](link)
+    * [Attributes](link)
+    * [Static Functions](link)
+
 ## Constructs
 
 ### Cluster
