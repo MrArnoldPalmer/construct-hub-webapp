@@ -194,7 +194,7 @@ Prefer to use `addAutoScalingGroupCapacity` if possible.
 cluster.connect_auto_scaling_group_capacity(auto_scaling_group: aws_cdk.aws_autoscaling.AutoScalingGroup, **kwargs)
 ```
 
-- *Returns: None
+- *Returns: None*
 
 **kwargs**
 
