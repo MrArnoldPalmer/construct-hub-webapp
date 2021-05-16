@@ -81,10 +81,24 @@ Configure access to the Kubernetes API server endpoint..
 
 #### Methods
 
+##### add_auto_scaling_group_capacity
+
+```python
+cluster.add_auto_scaling_group_capacity(id, **kwargs)
+```
+
+**Keyword Arguments**
+
+###### instance_type
+###### bootstrap_enabled
+
+**Returns**: [aws_cdk.aws_autoscaling.AutoScalingGroup](link)
+
+##### add_manifest
+
+##### connect_auto_scaling_group_capacity
+
 #### Attributes
 
 #### Static Functions
 
-### FargateCluster
-
-##
