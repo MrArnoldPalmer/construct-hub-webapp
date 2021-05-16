@@ -134,7 +134,7 @@ Configures the EC2 user-data script for instances in this autoscaling group to b
 
 ###### `bootstrap_options`
 
-- *Type: [BootstrapOptions](link)* | ***Optional** | Default: - none
+- *Type: [BootstrapOptions](link)* | ***Optional*** | Default: - none
 
 EKS node bootstrapping options.
 
