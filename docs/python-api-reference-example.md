@@ -246,8 +246,6 @@ Installs the AWS spot instance interrupt handler on the cluster if it's not alre
 
 #### Attributes
 
----
-
 ##### `connections`
 
 - *Type: [aws_cdk.aws_ec2.Connections](link)*
