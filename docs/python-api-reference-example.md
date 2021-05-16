@@ -8,6 +8,10 @@ This document shows how we'd like to present package API reference in python.
 
 ### Cluster
 
+A Cluster represents a managed Kubernetes Service (EKS).
+
+This is a fully managed cluster of API Servers (control-plane). The user is still required to create the worker nodes.
+
 ```python
 from aws_cdk import aws_eks as eks
 
@@ -79,7 +83,7 @@ Controls the "eks.amazonaws.com/compute-type" annotation in the CoreDNS configur
 
 ---
 
-##### ~~`endpoint_access`~~
+##### `endpoint_access`
 
 *Type: [EndpointAccess](link)* | ***Optional*** | *Default: EndpointAccess.PUBLIC_AND_PRIVATE*
 
@@ -91,56 +95,79 @@ Configure access to the Kubernetes API server endpoint..
 
 #### Methods
 
-##### add_auto_scaling_group_capacity <sup>[aws_cdk.aws_autoscaling.AutoScalingGroup](link)</sup>
+##### `add_auto_scaling_group_capacity`
+
+Add nodes to this EKS cluster.
+
+The nodes will automatically be configured with the right VPC and AMI for the instance type and Kubernetes version.
+Note that if you specify `updateType: RollingUpdate` or `updateType: ReplacingUpdate`, your nodes might be replaced at deploy time without notice in case the recommended AMI for your machine image type has been updated by AWS. The default behavior for `updateType` is `None`, which means only new instances will be launched using the new AMI.
+
+Spot instances will be labeled `lifecycle=Ec2Spot` and tainted with `PreferNoSchedule`. In addition, the [spot interrupt handler](https://github.com/awslabs/ec2-spot-labs/tree/master/ec2-spot-eks-solution/spot-termination-handler) daemon will be installed on all spot instances to handle [EC2 Spot Instance Termination Notices](https://aws.amazon.com/blogs/aws/new-ec2-spot-instance-termination-notices/).
 
 ```python
 cluster.add_auto_scaling_group_capacity(id: builtins.str, **kwargs)
 ```
 
-**Keyword Arguments**
+- *Returns: [aws_cdk.aws_autoscaling.AutoScalingGroup](link)*
 
-###### instance_type <sup>[aws_cdk.aws_ec2.InstanceType](link)</sup>
+**kwargs**
+
+---
+
+###### `instance_type`
+
+- *Type: [aws_cdk.aws_ec2.InstanceType](link)* | ***Required***
 
 Instance type of the instances to start
 
-> Required.
+---
 
-###### bootstrap_enabled <sup>builtins.bool</sup>
+###### `bootstrap_enabled`
+
+- *Type: builtins.bool* | ***Optional*** | Default: 2
 
 Configures the EC2 user-data script for instances in this autoscaling group to bootstrap the node (invoke `/etc/eks/bootstrap.sh`) and associate it with the EKS cluster
 
-> Optional <> Default: 2
-
 > If you wish to provide a custom user data script, set this to `false` and manually invoke `autoscalingGroup.addUserData()`
 
-###### bootstrap_options <sup>[BootstrapOptions](link)</sup>
+---
+
+###### `bootstrap_options`
+
+- *Type: [BootstrapOptions](link)* | ***Optional** | Default: - none
 
 EKS node bootstrapping options.
 
-> Optional <> Default: - none
+---
 
-###### machine_image_type <sup>[MachineImageType](link)</sup>
+###### `machine_image_type`
+
+- *Type: [MachineImageType](link)* | ***Optional*** | Default: MachineImageType.AMAZON_LINUX_2
 
 Machine image type
 
-> Optional <> Default: MachineImageType.AMAZON_LINUX_2
+---
 
-###### map_role <sup>builtins.bool</sup>
+###### `map_role`
+
+- *Type: builtins.bool* | ***Optional*** | Default: - true if the cluster has kubectl enabled (which is the default).
 
 Will automatically update the aws-auth ConfigMap to map the IAM instance role to RBAC.
 
-> Optional <> Default: - true if the cluster has kubectl enabled (which is the default).
-
 > This cannot be explicitly set to `true` if the cluster has kubectl disabled.
 
-###### rolling_update_configuration <sup>[aws_cdk.aws_autoscaling.RollingUpdateConfiguration](link)</sup>
+---
+
+###### ~~`rolling_update_configuration`~~
+
+- *Depracated: Use `updatePolicy` instead*
+- *Type: [aws_cdk.aws_autoscaling.RollingUpdateConfiguration](link)* | ***Optional*** | Default: - RollingUpdateConfiguration with defaults.
 
 Configuration for rolling updates
 
-> Optional <> Default: - RollingUpdateConfiguration with defaults.
-> @deprecated Use `updatePolicy` instead
-
 > Only used if updateType == UpdateType.RollingUpdate.
+
+---
 
 ##### add_manifest <sup>[KubernetesManifest](link)</sup>
 
