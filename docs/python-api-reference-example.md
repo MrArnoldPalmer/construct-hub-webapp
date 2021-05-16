@@ -290,3 +290,39 @@ A security group to use for ``kubectl`` execution.
 
 #### Static Functions
 
+##### `from_cluster_attributes` 
+
+Import an existing cluster
+
+The manifest will be applied/deleted using kubectl as needed.
+
+```python
+from aws_cdk import aws_eks as eks
+
+eks.Cluster.from_cluster_attributes(scope: constructs.Construct, id: builtins.str, **kwargs)
+```
+
+- *Returns: [ICluster](link)*
+
+**kwargs**
+
+---
+
+###### `cluster_name`
+
+- *Type: builtins.str* | ***Required***
+
+The physical name of the Cluster
+
+###### `vpc`
+
+- *Type: aws_cdk.aws_ec2.IVpc* | ***Optional*** | Default: - if not specified `cluster.vpc` will throw an error
+
+The VPC in which this Cluster was created
+
+###### `kubectl_role_arn`
+
+- *Type: builtins.str* | ***Optional*** | Default: - if not specified, it not be possible to issue `kubectl` commands against an imported cluster.
+
+An IAM role with cluster administrator and "system:masters" permissions.
+
