@@ -1,6 +1,6 @@
 # Python API Reference Example
 
-This document shows how we'd like to present package API reference in python.
+~~This~~ document shows how we'd like to present package API reference in python.
 
 # API Reference
 
@@ -18,7 +18,7 @@ eks.Cluster(scope: constructs.Construct, id: builtins.str, **kwargs)
 
 ---
 
-##### version
+##### ~~version~~
 
 The Kubernetes version to run in the cluster
 
