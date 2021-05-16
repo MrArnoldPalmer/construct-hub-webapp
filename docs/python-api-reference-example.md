@@ -314,11 +314,15 @@ eks.Cluster.from_cluster_attributes(scope: constructs.Construct, id: builtins.st
 
 The physical name of the Cluster
 
+---
+
 ###### `vpc`
 
 - *Type: aws_cdk.aws_ec2.IVpc* | ***Optional*** | Default: - if not specified `cluster.vpc` will throw an error
 
 The VPC in which this Cluster was created
+
+---
 
 ###### `kubectl_role_arn`
 
@@ -326,3 +330,4 @@ The VPC in which this Cluster was created
 
 An IAM role with cluster administrator and "system:masters" permissions.
 
+---
