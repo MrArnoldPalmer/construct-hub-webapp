@@ -169,27 +169,52 @@ Configuration for rolling updates
 
 ---
 
-##### add_manifest <sup>[KubernetesManifest](link)</sup>
+##### `add_manifest` 
+
+Defines a Kubernetes resource in this cluster.
+
+The manifest will be applied/deleted using kubectl as needed.
 
 ```python
 cluster.add_manifest(id: builtins.str, *manifest: typing.Mapping[builtins.str, typing.Any])
 ```
 
-##### connect_auto_scaling_group_capacity
+- *Returns: [KubernetesManifest](link)*
+
+##### `connect_auto_scaling_group_capacity`
+
+Connect capacity in the form of an existing AutoScalingGroup to the EKS cluster.
+
+The AutoScalingGroup must be running an EKS-optimized AMI containing the /etc/eks/bootstrap.sh script. This method will configure Security Groups,add the right policies to the instance role, apply the right tags, and add the required user data to the instance's launch configuration.
+
+Spot instances will be labeled `lifecycle=Ec2Spot` and tainted with `PreferNoSchedule`. If kubectl is enabled, the [spot interrupt handler](https://github.com/awslabs/ec2-spot-labs/tree/master/ec2-spot-eks-solution/spot-termination-handler) daemon will be installed on all spot instances to handle [EC2 Spot Instance Termination Notices](https://aws.amazon.com/blogs/aws/new-ec2-spot-instance-termination-notices/).
+Prefer to use `addAutoScalingGroupCapacity` if possible.
 
 ```python
 cluster.connect_auto_scaling_group_capacity(auto_scaling_group: aws_cdk.aws_autoscaling.AutoScalingGroup, **kwargs)
 ```
 
-**Keyword Arguments**
+- *Returns: None
+
+**kwargs**
+
+---
 
 ###### bootstrap_enabled
 
+---
+
 ###### bootstrap_options
+
+---
 
 ###### machine_image_type
 
+---
+
 ###### map_role
+
+---
 
 ###### spot_interrupt_handler
 
