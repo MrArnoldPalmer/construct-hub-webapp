@@ -18,7 +18,7 @@ eks.Cluster(scope: constructs.Construct, id: builtins.str, **kwargs)
 
 ---
 
-##### ~~version~~
+##### ~~version~~ (depecrated - use x)
 
 The Kubernetes version to run in the cluster
 
