@@ -16,7 +16,7 @@ eks.Cluster(scope, id, **kwargs)
 
 #### Keyword Arguments
 
-##### default_capacity
+##### default_capacity <sup>required</sup>
 
 Number of instances to allocate as an initial capacity for this cluster.
 
