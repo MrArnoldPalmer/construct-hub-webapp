@@ -6,7 +6,7 @@ This document shows how we'd like to present package API reference in python.
 
 * [Constructs](#constructs)
   * [Cluster](#cluster)
-    * [Properties](#properties)
+    * [Initializer](#initializer)
       * [`version`](#version)
       * [`default_capacity`](#default_capacity)
       * [`default_capacity_instance`](#default_capacity_instance)
@@ -19,7 +19,7 @@ This document shows how we'd like to present package API reference in python.
       * [`add_manifest`](#add_manifest)
       * [`add_auto_scaling_group_capacity`](#add_auto_scaling_group_capacity)
       * [`connect_auto_scaling_group_capacity`](#connect_auto_scaling_group_capacity)
-    * [Attributes](link)
+    * [Properties](link)
       * [`connections`](#connections)
       * [`cluster_security_group`](#cluster_security_group)
       * [`default_capacity`](#default_capacity-1)
@@ -27,11 +27,6 @@ This document shows how we'd like to present package API reference in python.
       * [`kubectl_security_group`](#kubectl_security_group)
     * [Static Functions](link)
       * [`from_cluster_attributes`](#from_cluster_attributes)
-  * [AwsAuth](link)
-    * [Properties](link)
-    * [Methods](link)
-    * [Attributes](link)
-    * [Static Functions](link)
 
 ## Constructs
 
@@ -41,13 +36,15 @@ A Cluster represents a managed Kubernetes Service (EKS).
 
 This is a fully managed cluster of API Servers (control-plane). The user is still required to create the worker nodes.
 
+#### Initializer
+
 ```python
 from aws_cdk import aws_eks as eks
 
 eks.Cluster(scope: constructs.Construct, id: builtins.str, **kwargs)
 ```
 
-#### Properties
+**kwargs**
 
 ---
 
