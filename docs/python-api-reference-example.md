@@ -1,6 +1,14 @@
 # Python API Reference Example
 
-This document shows how we'd like to present package API reference in python.
+This document shows the experience of a python API reference document in terms of:
+
+- Navigation
+- Content
+- Concepts
+
+This README file can be generated from a jsii assembly independently from the construct hub, and provides the building block for displaying documentation pages. Users can place this file in their own repository.
+
+In the construct hub, this README will be processed by a UI component which will rended a navigation pane and a content pane. 
 
 # API Reference
 
