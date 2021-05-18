@@ -15,17 +15,17 @@ This document shows how we'd like to present package API reference in python.
       * [`cluster_handler_environment`](#cluster_handler_environment)
       * [`core_dns_compute_type`](#core_dns_compute_type)
       * [`endpoint_access`](#endpoint_access)
-    * [Methods](link)
+    * [Methods](#methods)
       * [`add_manifest`](#add_manifest)
       * [`add_auto_scaling_group_capacity`](#add_auto_scaling_group_capacity)
       * [`connect_auto_scaling_group_capacity`](#connect_auto_scaling_group_capacity)
-    * [Properties](link)
+    * [Properties](#properties)
       * [`connections`](#connections)
       * [`cluster_security_group`](#cluster_security_group)
       * [`default_capacity`](#default_capacity-1)
       * [`aws_auth`](#aws_auth)
       * [`kubectl_security_group`](#kubectl_security_group)
-    * [Static Functions](link)
+    * [Static Members](#static-members)
       * [`from_cluster_attributes`](#from_cluster_attributes)
 
 ## Constructs
@@ -270,7 +270,7 @@ Installs the AWS spot instance interrupt handler on the cluster if it's not alre
 
 ---
 
-#### Attributes
+#### Properties
 
 ##### `connections`
 
@@ -314,7 +314,7 @@ A security group to use for ``kubectl`` execution.
 
 > If not specified, the k8s endpoint is expected to be accessible publicly.
 
-#### Static Functions
+#### Static Members
 
 ##### `from_cluster_attributes` 
 
