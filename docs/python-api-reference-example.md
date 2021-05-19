@@ -38,7 +38,7 @@ In the construct hub, this README will be processed by a UI component which will
 
 ## Constructs
 
-### Cluster
+### `Cluster`
 
 A Cluster represents a managed Kubernetes Service (EKS).
 
