@@ -56,11 +56,11 @@ eks.Cluster(scope: constructs.Construct, id: builtins.str, **kwargs)
 
 ---
 
-##### `version`
+- ##### `version`
 
-The Kubernetes version to run in the cluster
+  The Kubernetes version to run in the cluster
 
-- *Type: [KubernetesVersion](link)* | ***Required***
+  - *Type: [KubernetesVersion](link)* | ***Required***
 
 ---
 
