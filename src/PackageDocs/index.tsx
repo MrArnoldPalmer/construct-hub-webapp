@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Flex, Box } from "@chakra-ui/react";
 import ReactMarkdown from "@uiw/react-markdown-preview";
 import ChakraUIRenderer from "chakra-ui-markdown-renderer";
 import * as reflect from "jsii-reflect";
@@ -20,8 +20,9 @@ export function PackageDocs(props: PackageDocsProps) {
   const source = doc.render().render();
 
   return (
-    <Box width="100%">
+    <Flex width="100%">
+      <Box height="100%" width={0.2}></Box>
       <ReactMarkdown skipHtml components={ChakraUIRenderer()} source={source} />
-    </Box>
+    </Flex>
   );
 }
